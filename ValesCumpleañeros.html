@@ -1,0 +1,222 @@
+<html>
+
+<head>
+    <title>ValesCumpleañeros</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable = no">
+    <link href = "estilos_vales.css" rel = "stylesheet" type= "text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'> 
+</head>
+    
+    <body>
+        <div id= "encabezado">
+        <div class= "triangulo">
+        
+        </div>
+            <h1>Vales</h1>
+        </div>
+        
+        <div id = "contenido">
+        <h1>Tu siguiente vale es:</h1>
+        <button id = "boton-agregar" onclick="agregarVale()"><img src= "valenuevo.png"></button>
+        <img src="http://lorempixel.com/400/600/nature/"> 
+        </div>
+        
+        <div id = "mensaje">
+        
+        <h1 id="printVale"></h1>  
+        
+        </div>
+        
+    </body>
+    <script>
+    
+        window.addEventListener('load',iniciar,true);
+        function iniciar()
+        {
+            //ponemos el numero de vales
+            if(localStorage.getItem('valesTotales'))
+            {
+                 //nmero de vales real
+                tVales = localStorage.getItem('valesTotales');
+            }
+            else
+            {
+                v = 45;
+                localStorage.setItem('valesTotales',v);
+            }
+           
+            
+            //contador numero de vales
+             if(!localStorage.getItem('valesTomados'))
+            {
+                  nVales = 0;
+                localStorage.setItem('valesTomados',nVales);
+            }
+                      
+            anchuraBoton = document.getElementById('boton-agregar').offsetWidth;
+            document.getElementById('boton-agregar').style.height = anchuraBoton+"px"; 
+        }
+        function agregarVale()
+        {
+            //incrementamos el contador de nV
+            nV = localStorage.getItem('valesTomados');
+            nV++;
+            switch(nV) 
+            {
+                
+                case 1:
+                    vale = "Cena, paga moy";
+                    break;
+                case 2:
+                    vale = "No regaño";
+                    break;
+                case 3:
+                    vale = "Salir a caminar";
+                    break;
+                case 4:
+                    vale = "Salir a otro municipio";
+                    break;
+                case 5:
+                    vale = "No regaño";
+                    break;
+                case 6:
+                    vale = "Tarde con mama";
+                    break;
+                case 7:
+                    vale = "Moy lava los trastes hoy";
+                    break;
+                case 8:
+                    vale = "Un chocolate";
+                    break;
+                case 9:
+                    vale = "Abachos";
+                    break;
+                case 10:
+                    vale = "Vamos por carnitas";
+                    break;
+                case 11:
+                    vale = "Vamos por barbacoa";
+                    break;
+                case 12:
+                    vale = "Moy da un masajito";
+                    break;
+                case 13:
+                    vale = "No regaño";
+                    break;
+                case 14:
+                    vale = "Vamos al cine";
+                    break;
+                case 15:
+                    vale = "Veamos una pelicula";
+                    break;
+                case 16:
+                   vale = "Comer fuera, mo paga";
+                    break;
+                case 17:
+                    vale = "Vamos a comprar cositas";
+                    break;
+                case 18:
+                    vale = "Un heladito";
+                    break;
+                case 19:
+                    vale = "No regaño";
+                    break;
+                case 20:
+                    vale = "Moy no juega y esta con mami";
+                    break;
+                case 21:
+                    vale = "Moy lava los platos hoy";
+                    break;
+                case 22:
+                    vale = "Vamos por tamales";
+                    break;
+                case 23:
+                    vale = "Cena, paga moy";
+                    break;
+                case 24:
+                    vale = "No regaño";
+                    break;
+                case 25:
+                    vale = "Salir a caminar";
+                    break;
+                case 26:
+                    vale = "Salir a otro municipio";
+                    break;
+                case 27:
+                    vale = "No regaño";
+                    break;
+                case 28:
+                    vale = "Tarde con mama";
+                    break;
+                case 29:
+                    vale = "Moy lava los trastes hoy";
+                    break;
+                case 30:
+                    vale = "Un chocolate";
+                    break;
+                case 31:
+                    vale = "Abachos";
+                    break;
+                case 32:
+                    vale = "Vamos por carnitas";
+                    break;
+                case 33:
+                    vale = "Vamos por barbacoa";
+                    break;
+                case 34:
+                    vale = "Moy da un masajito";
+                    break;
+                case 35:
+                    vale = "No regaño";
+                    break;
+                case 36:
+                    vale = "Vamos al cine";
+                    break;
+                case 37:
+                    vale = "Veamos una pelicula";
+                    break;
+                case 38:
+                   vale = "Comer fuera, mo paga";
+                    break;
+                case 39:
+                    vale = "Vamos a comprar cositas";
+                    break;
+                case 40:
+                    vale = "Un heladito";
+                    break;
+                case 41:
+                    vale = "No regaño";
+                    break;
+                case 42:
+                    vale = "Moy no juega y esta con mami";
+                    break;
+                case 43:
+                    vale = "Moy lava los platos hoy";
+                    break;
+                case 44:
+                    vale = "Vamos por tamales";
+                    break;
+                case 45:
+                    vale = "Vayamos de viaje";
+                    break;
+                default:
+                    vale = "Se acabaron lso vales";
+                    break;
+            }
+            document.getElementById('printVale').innerHTML = vale;
+             document.getElementById('mensaje').style.transition=".3s all";
+            document.getElementById('mensaje').style.visibility="visible";
+            document.getElementById('mensaje').style.opacity="1";
+            document.getElementById('mensaje').style.webkitTransform="scale(1)";
+            localStorage.removeItem('valesTomados');
+            localStorage.setItem('valesTomados',nV);
+        }
+            
+        
+        
+        
+    </script>
+    
+    
+</html>
